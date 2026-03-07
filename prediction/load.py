@@ -18,10 +18,12 @@ def predict_load(user_input):
         final_model = pickle.load(f)
 
     EXPECTED_COLS = [
-        "temp_C", "humidity_%", "wind_speed_m_s", "solar_irradiance_W_m2",
-        "precip_mm", "year", "month", "day", "hour",
-        "weather_Cloudy", "weather_Rainy", "weather_Sunny"
+    "temp_C", "humidity_%", "wind_speed_m_s",
+    "solar_irradiance_W_m2", "precip_mm",
+    "year", "month", "day", "hour",
+    "weather_Cloudy", "weather_Rainy", "weather_Sunny"
     ]
+
 
     df = pd.DataFrame([user_input])
 
@@ -48,6 +50,10 @@ def predict_load(user_input):
     df = df[EXPECTED_COLS]
 
     X_scaled = scaler.transform(df)
-    prediction = final_model.predict(X_scaled)
+    prediction_scaled = final_model.predict(X_scaled)
 
-    return prediction[0]
+
+    prediction_real = float(prediction_scaled[0])
+
+    return prediction_real
+

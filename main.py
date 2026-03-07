@@ -51,7 +51,11 @@ load_input = {
     "humidity_%": humidity,
     "wind_speed_m_s": wind_speed,
     "solar_irradiance_W_m2": solar_irradiance,
-    "precip_mm": precip_mm
+    "precip_mm": precip_mm,
+    "installed_solar_MW": installed_solar_MW,
+    "panel_area_m2": panel_area_m2,
+    "num_panels": num_panels,
+    "installed_wind_MW": installed_wind_MW
 }
 
 solar_input = {

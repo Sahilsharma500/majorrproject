@@ -20,8 +20,8 @@ def predict_solar(user_input):
 
     # Expected column order during training
     EXPECTED_COLS = [
-        'temp_C', 'humidity_%', 'wind_speed_m_s', 'solar_irradiance_W_m2',
-        'installed_solar_MW', 'panel_area_m2', 'num_panels', 'year',
+        'temp_C', 'humidity_%', 'wind_speed_m_s', 'solar_irradiance_W_m2','precip_mm',
+        'installed_solar_MW', 'panel_area_m2', 'num_panels', 'year', 'month', 'day', 'hour',
         'weather_Cloudy', 'weather_Rainy', 'weather_Sunny'
     ]
 
@@ -33,7 +33,7 @@ def predict_solar(user_input):
     df['datetime'] = pd.to_datetime(df['datetime'])
     df['year'] = df['datetime'].dt.year
 
-    df = df.drop(columns=['datetime', 'month', 'day', 'hour', 'precip_mm'], errors='ignore')
+    df = df.drop(columns=['datetime'], errors='ignore')
 
     # --------------------------------------------
     # One-hot encode weather
